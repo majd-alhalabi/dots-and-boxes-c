@@ -3,6 +3,9 @@ CFLAGS=-Wall -Wextra -std=c11
 
 all: game
 
+run:
+	./game
+
 game: main.o game.o board.o
 	$(CC) $(CFLAGS) main.o game.o board.o -o game
 
