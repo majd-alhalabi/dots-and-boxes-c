@@ -10,7 +10,7 @@ void start_game() {
 
     while(!is_game_over()) {
         print_board();
-        printf("Player %c's turn. Enter the row and column of the first dot (e.g., A0 -> 0 0) and second dot: ", player);
+        printf("Player %c's turn. Enter the row and column of the first dot (e.g., A0 -> 0 0) and second dot:\n", player);
 
         if(scanf("%d %d %d %d",&r1,&c1,&r2,&c2)!=4) {
             printf("Invalid input!\n");
