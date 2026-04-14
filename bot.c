@@ -49,3 +49,21 @@ int try_complete_box(int *r1,int *c1,int *r2,int *c2) {
     return 0;
 }
 
+int creates_third_edge(int r1,int c1,int r2,int c2) {
+
+    if(r1 == r2) {
+        int c = (c1 < c2) ? c1 : c2;
+
+        if(r1 > 0 && count_edges(r1-1, c) == 2) return 1;
+        if(r1 < ROWS && count_edges(r1, c) == 2) return 1;
+    }
+
+    if(c1 == c2) {
+        int r = (r1 < r2) ? r1 : r2;
+
+        if(c1 > 0 && count_edges(r, c1-1) == 2) return 1;
+        if(c1 < COLS && count_edges(r, c1) == 2) return 1;
+    }
+
+    return 0;
+}
