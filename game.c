@@ -14,7 +14,7 @@ void start_game() {
     printf("Choose mode:\n");
     printf("1. Player vs Player\n");
     printf("2. Player vs Bot\n");
-    printf("Enter choice: ");
+    printf("Enter choice:\n");
     scanf("%d", &mode);
 
     while (!is_game_over()) {
