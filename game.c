@@ -43,17 +43,31 @@ void start_game() {
         if (result == 0) {
             player = (player == 'A') ? 'B' : 'A';
         }
+        
+        printf("\n**************************************\n");
+        printf("Player A score: %d\n", get_score('A'));
+        printf("Player B score: %d\n", get_score('B'));
+        printf("**************************************\n\n");
     }
 
     print_board();
 
     int scoreA = get_score('A');
     int scoreB = get_score('B');
-
-    printf("\nFinal Scores:\n");
-    printf("A: %d\nB: %d\n", scoreA, scoreB);
-
-    if(scoreA > scoreB) printf("Player A wins!\n");
-    else if(scoreB > scoreA) printf("Player B wins!\n");
-    else printf("Draw!\n");
+    
+    printf("\n===== FINAL SCORES =====\n");
+    printf("Player A: %d\n", scoreA);
+    printf("Player B: %d\n", scoreB);
+    printf("===== THE WINNER =====\n");
+    
+    if (scoreA > scoreB) {
+        printf("Player A wins!\n");
+    } else if (scoreB > scoreA) {
+        if (mode == 2)
+            printf("Bot wins!\n");
+        else
+            printf("Player B wins!\n");
+    } else {
+        printf("It's a draw!\n");
+    }
 }
