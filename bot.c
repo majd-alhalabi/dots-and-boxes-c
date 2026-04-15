@@ -67,3 +67,33 @@ int creates_third_edge(int r1,int c1,int r2,int c2) {
 
     return 0;
 }
+
+int try_safe_move(int *r1,int *c1,int *r2,int *c2) {
+
+    for(int i=0;i<ROWS+1;i++) {
+        for(int j=0;j<COLS;j++) {
+
+            if(!get_h_line(i,j)) {
+                if(!creates_third_edge(i,j,i,j+1) && is_valid_move(i,j,i,j+1)) {
+                    *r1=i; *c1=j; *r2=i; *c2=j+1;
+                    return 1;
+                }
+            }
+        }
+    }
+
+    for(int i=0;i<ROWS;i++) {
+        for(int j=0;j<COLS+1;j++) {
+
+            if(!get_v_line(i,j)) {
+                if(!creates_third_edge(i,j,i+1,j) && is_valid_move(i,j,i+1,j)) {
+                    *r1=i; *c1=j; *r2=i+1; *c2=j;
+                    return 1;
+                }
+            }
+        }
+    }
+
+    return 0;
+}
+
