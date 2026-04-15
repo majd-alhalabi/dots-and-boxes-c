@@ -1,5 +1,7 @@
 #include <stdlib.h>
+#include <time.h>
 #include "board.h"
+#include "bot.h"
 
 int count_edges(int i, int j) {
     int count = 0;
@@ -97,3 +99,31 @@ int try_safe_move(int *r1,int *c1,int *r2,int *c2) {
     return 0;
 }
 
+void bot_move(int *r1,int *c1,int *r2,int *c2) {
+
+    static int initialized = 0;
+    if(!initialized) {
+        srand(time(NULL));
+        initialized = 1;
+    }
+
+    if(try_complete_box(r1,c1,r2,c2)) return;
+
+    if(try_safe_move(r1,c1,r2,c2)) return;
+
+    do {
+        *r1 = rand() % (ROWS + 1);
+        *c1 = rand() % (COLS + 1);
+
+        int dir = rand() % 2;
+
+        if(dir == 0) {
+            *r2 = *r1;
+            *c2 = *c1 + 1;
+        } else {
+            *r2 = *r1 + 1;
+            *c2 = *c1;
+        }
+
+    } while(!is_valid_move(*r1,*c1,*r2,*c2));
+}
