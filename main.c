@@ -1,6 +1,7 @@
 #include "game.h"
 #include <stdio.h>
 int main() {
+int c;
 printf("==============================\n");
 printf("     DOTS AND BOXES GAME\n");
 printf("==============================\n");
