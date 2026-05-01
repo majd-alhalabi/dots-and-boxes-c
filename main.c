@@ -19,7 +19,7 @@ printf("4. Join Game\n");
     scanf("%d",&c);
 
     if(c==1){
-        play_game();
+        start_game();
     }
     else if(c==2){
         play_with_bot();
