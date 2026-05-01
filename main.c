@@ -1,5 +1,6 @@
 #include "game.h"
 #include <stdio.h>
+#include "network.h"
 int main() {
 int c;
 printf("==============================\n");
